@@ -3,10 +3,10 @@ class AnticipatedMovies::MovieDetails
 
   @@all = []
 
-  def initialize(title)
-  #def initialize(title, url) #comment back in and delete previous line when pulling URL
+  #def initialize(title)
+  def initialize(title, url) #comment back in and delete previous line when pulling URL
     @title = title
-    #@url = url - comment back in when pulling the URL
+    @url = url # comment back in when pulling the URL
   end
 
   def save
