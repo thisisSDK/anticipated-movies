@@ -30,9 +30,9 @@ class AnticipatedMovies::CLI
 
   def select_movie
     puts "Select the movie you would like to view"
-    input = gets.chomp
+    input = gets.chomp.to_i
 
     movie = AnticipatedMovies::MovieDetails.all[input - 1]
-    AnticipatedMovies::MovieDetails.scrape_movie(movie)
+    AnticipatedMovies::Scraper.scrape_movie(movie)
   end
 end

@@ -7,12 +7,21 @@ class AnticipatedMovies::Scraper
     doc.css("strong a").each do |movie_doc|
       #title = movie_doc.text
       title = movie_doc.text #tried this when attempting to pull URL
-      url = movie_doc.attribute("href").value #pulls value when binding.pry is commented in on line 10.
+      url = movie_doc.attribute("href").value #pulls value when binding.pry is commented in above.
       #movie = AnticipatedMovies::MovieDetails.new(title)
       movie = AnticipatedMovies::MovieDetails.new(title, url) #comment back in and delete previous line when pulling the URL
-
+      ##problem: calling AnticipatedMovies::MovieDetails with binding.pry at :16 gives an error. URL only shown when individually called and binding.pry is  above.
       movie.save
     end
     #binding.pry
+
+    def self.scrape_movie(movie)
+      html = open (movie.url)
+
+      doc = Nokogiri::HTML(html)
+      binding.pry
+      # movie.rating =
+      # movie.genre
+    end
   end
 end
