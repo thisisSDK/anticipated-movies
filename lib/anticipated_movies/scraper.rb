@@ -5,11 +5,11 @@ class AnticipatedMovies::Scraper
 
     doc = Nokogiri::HTML(html)
 
-    doc.css(".articleContentBody a").each do |movie_doc|
+    doc.css(".articleContentBody strong").each do |movie_doc|
       #binding.pry
       #title = movie_doc.text
       title = movie_doc.css("a").text #tried this when attempting to pull URL
-      url = movie_doc.css("a").css("href").text
+      url = movie_doc.css("strong").css("href")
       #movie = AnticipatedMovies::MovieDetails.new(title)
       movie = AnticipatedMovies::MovieDetails.new(title, url) #comment back in and delete previous line when pulling the URL
 
