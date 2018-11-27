@@ -3,8 +3,9 @@ class AnticipatedMovies::MovieDetails
 
   @@all = []
 
-  def initialize(title)
+  def initialize(title, url)
     @title = title
+    @url = url
   end
 
   def save

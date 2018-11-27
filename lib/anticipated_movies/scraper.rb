@@ -5,14 +5,15 @@ class AnticipatedMovies::Scraper
 
     doc = Nokogiri::HTML(html)
 
-    doc.css(".articleContentBody a").each do |movie_doc|
-    binding.pry
-      title = movie_doc.text
-      movie = AnticipatedMovies::MovieDetails.new(title)
+    doc.css(".articleContentBody").each do |movie_doc|
+
+      title = movie_doc.css("a").text
+      url = movie_doc.css("a").attr("href").value
+      movie = AnticipatedMovies::MovieDetails.new(title, url)
       movie.save
 
     end
-    binding.pry
+    #binding.pry
 
   end
 end
