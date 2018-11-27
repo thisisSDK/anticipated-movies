@@ -33,6 +33,17 @@ class AnticipatedMovies::CLI
     input = gets.chomp.to_i
 
     movie = AnticipatedMovies::MovieDetails.all[input - 1]
-    AnticipatedMovies::Scraper.scrape_movie(movie)
+    if !movie.synopsis
+      AnticipatedMovies::Scraper.scrape_movie(movie)
+      #binding.pry
+
+      display_movie_details(movie)
+    else
+      display_movie_details(movie)
+    end
+  end
+
+  def display_movie_details(movie)
+    details = AnticipatedMovies::Scraper.movie_synopsis
   end
 end

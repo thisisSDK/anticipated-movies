@@ -19,9 +19,11 @@ class AnticipatedMovies::Scraper
       html = open (movie.url)
 
       doc = Nokogiri::HTML(html)
-      binding.pry
-      # movie.rating =
-      # movie.genre
+      #binding.pry
+      movie.synopsis = doc.css(".movie_synopsis").text
+      # movie.rating = doc.css(".meta-value")[0].text
+      # movie.genre = doc.css(".meta-value")[1].text
+      # movie.director = doc.css(".meta-value")[2].text
     end
   end
 end

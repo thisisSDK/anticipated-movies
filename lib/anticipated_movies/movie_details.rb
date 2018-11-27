@@ -1,5 +1,5 @@
 class AnticipatedMovies::MovieDetails
-  attr_accessor :title, :url
+  attr_accessor :title, :url, :synopsis, :rating, :genre, :director
 
   @@all = []
 
