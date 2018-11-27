@@ -1,5 +1,7 @@
 # AnticipatedMovies
 
+This gem scrapes the most anticipated movies of 2019 from Rotten Tomatoes and enables the user to find out more information on the up-and-coming flicks.
+
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/anticipated_movies`. To experiment with that code, run `bin/console` for an interactive prompt.
 
 TODO: Delete this and the text above, and describe your gem
@@ -37,3 +39,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/<thisi
 ## Code of Conduct
 
 Everyone interacting in the AnticipatedMovies project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/<thisisSDK>/anticipated_movies/blob/master/CODE_OF_CONDUCT.md).
+
+## License
+
+This gem uses the MIT License. Check it out here (https://opensource.org/licenses/MIT)
