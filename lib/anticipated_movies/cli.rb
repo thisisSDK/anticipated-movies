@@ -44,6 +44,12 @@ class AnticipatedMovies::CLI
   end
 
   def display_movie_details(movie)
-    details = AnticipatedMovies::Scraper.movie_synopsis
+    #binding.pry
+    # details = AnticipatedMovies::Scraper.movie_synopsis
+    puts movie.synopsis
+    puts movie.rating
+    puts movie.genre
   end
 end
+
+ ##stuck on final logic - need to display movie details from scraper.rb - the URL is working. Logic is wrong.

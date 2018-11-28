@@ -4,7 +4,7 @@ class AnticipatedMovies::Scraper
     html = open ("https://editorial.rottentomatoes.com/article/most-anticipated-2019-movies/")
 
     doc = Nokogiri::HTML(html)
-    doc.css("strong a").each do |movie_doc|
+    doc.css("strong a")[6..67].each do |movie_doc|
       #title = movie_doc.text
       title = movie_doc.text #tried this when attempting to pull URL
       url = movie_doc.attribute("href").value #pulls value when binding.pry is commented in above.
@@ -20,9 +20,10 @@ class AnticipatedMovies::Scraper
 
       doc = Nokogiri::HTML(html)
       #binding.pry
-      movie.synopsis = doc.css(".movie_synopsis").text
-      # movie.rating = doc.css(".meta-value")[0].text
-      # movie.genre = doc.css(".meta-value")[1].text
+      movie.synopsis = doc.css(".movie_synopsis").text.strip
+      #put an if statement here for cases where there is no synopsis.
+      movie.rating = doc.css(".meta-value")[0].text
+      movie.genre = doc.css(".meta-value")[1].text.gsub(" " , "").strip.gsub("\n", " ").gsub("&", " & ")
       # movie.director = doc.css(".meta-value")[2].text
     end
   end
