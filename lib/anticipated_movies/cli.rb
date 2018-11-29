@@ -49,6 +49,13 @@ class AnticipatedMovies::CLI
     puts movie.synopsis
     puts movie.rating
     puts movie.genre
+    puts "Would you like to view another movie?"
+    puts "(y)es | (n)o"
+    input = gets.chomp
+    if input == "y"
+      self.start
+    end
+
   end
 end
 
