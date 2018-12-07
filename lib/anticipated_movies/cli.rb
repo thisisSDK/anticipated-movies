@@ -18,6 +18,20 @@ class AnticipatedMovies::CLI
     when 's'
       select_movie
     end
+
+    if input != "e"; "l"; "s"; "n"
+      puts "Invalid input. Please try again."
+      # start #### -- creates a loop don't do this
+      menu
+    elsif input == "e"
+
+    # elsif input == "n"
+
+    else
+      display_movies
+    end
+
+
   end
 
   def display_movies
@@ -45,7 +59,7 @@ class AnticipatedMovies::CLI
 
   def display_movie_details(movie)
     #binding.pry
-    # details = AnticipatedMovies::Scraper.movie_synopsis
+    # error: used this is not the place for class methods. --> details = AnticipatedMovies::Scraper.movie_synopsis
     puts movie.synopsis
     puts movie.rating
     puts movie.genre
@@ -53,9 +67,10 @@ class AnticipatedMovies::CLI
     puts "(y)es | (n)o"
     input = gets.chomp
     if input == "y"
-      self.start
-    end
+      display_movies
+    else input == "n"
 
+    end
   end
 end
 
