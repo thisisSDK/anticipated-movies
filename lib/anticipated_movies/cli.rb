@@ -11,7 +11,7 @@ class AnticipatedMovies::CLI
 
   def menu
     puts "Tell me how you'd like to proceed:"
-    puts "(e)xit | (l)ist | (s)elect a movie"
+    puts "(s)elect a movie | (e)xit"
 
     input = gets.chomp
     case input
@@ -19,19 +19,15 @@ class AnticipatedMovies::CLI
       select_movie
     end
 
-    if input != "e"; "l"; "s"; "n"
+    if input != "e"; "s"
       puts "Invalid input. Please try again."
       # start #### -- creates a loop don't do this
       menu
     elsif input == "e"
-
-    # elsif input == "n"
-
+      exit
     else
-      display_movies
+       display_movies
     end
-
-
   end
 
   def display_movies
@@ -66,10 +62,15 @@ class AnticipatedMovies::CLI
     puts "Would you like to view another movie?"
     puts "(y)es | (n)o"
     input = gets.chomp
+      # display_movies
+    # else input == "n"
     if input == "y"
-      display_movies
-    else input == "n"
+        display_movies
+        menu
 
+    else input == "n"
+          puts "Smell ya later!"
+          exit
     end
   end
 end
